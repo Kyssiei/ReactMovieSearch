@@ -1,5 +1,8 @@
-export default function MovieDisplay(props) {
-    // The component must return some JSX
+
+
+export default function MovieDisplay({movie}) {
+  // The component must return some JSX
+  const loaded = () =>{
     return (
         <>
           <h1>{movie.Title}</h1>
@@ -8,4 +11,13 @@ export default function MovieDisplay(props) {
           <h2>{movie.Year}</h2>
         </>
       );
+
+  }
+   // Function to return loading JSX
+   const loading = () => {
+    return <h1>No Movie to Display</h1>;
+  };
+
+  // Ternary operator will determine which functions JSX we will return
+  return movie ? loaded() : loading();
 };

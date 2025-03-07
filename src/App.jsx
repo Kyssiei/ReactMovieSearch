@@ -32,10 +32,15 @@ export default function App() {
 
  // We pass the getMovie function as a prop called moviesearch
 
+  // This will run on the first render but not on subsquent renders
+  useEffect(() => {
+    getMovie("Clueless");
+  }, []);
+  
   return (
     <div className="App">
-      <Form />
-      <MovieDisplay />
+      <Form moviesearch={getMovie} />
+      <MovieDisplay movie={movie} />
     </div>
   );
 }
